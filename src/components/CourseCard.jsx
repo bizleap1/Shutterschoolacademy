@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const CourseCard = ({ course, index }) => {
+const CourseCard = ({ course, index, onViewSyllabus }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -11,11 +11,11 @@ const CourseCard = ({ course, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-white border border-[#E8E3D8] hover:border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] text-[#111111] flex flex-col h-full group hover:-translate-y-2 transition-all duration-500 overflow-hidden rounded-3xl"
     >
-      <div className="aspect-[4/3] w-full bg-[#151515] relative overflow-hidden">
+      <div className="aspect-[4/3] w-full bg-black relative overflow-hidden flex items-center justify-center">
         <img 
           src={course.image} 
           alt={course.title}
-          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+          className="w-full h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
           onError={(e) => {
              e.target.style.display = 'none';
           }}
@@ -42,11 +42,9 @@ const CourseCard = ({ course, index }) => {
           {course.description}
         </p>
         
-        <div className="mt-auto grid grid-cols-2 gap-4">
+        <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
           <button 
-            onClick={() => {
-              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }}
+            onClick={() => onViewSyllabus ? onViewSyllabus() : window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
             className="w-full py-3.5 text-center border border-[#111] text-[#111] text-[10px] font-bold uppercase tracking-widest hover:bg-[#111] hover:text-white transition-colors duration-300 rounded-xl"
           >
             View Syllabus

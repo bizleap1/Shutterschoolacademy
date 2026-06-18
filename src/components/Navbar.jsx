@@ -48,9 +48,9 @@ const Navbar = () => {
       }`}>
           <Link to="/" className="flex items-center">
               <img 
-                src="/images/logo-removebg-preview.png" 
+                src="/logo.png" 
                 alt="Shutter School Logo" 
-                className="h-[60px] md:h-[80px] w-auto object-contain brightness-0 invert" 
+                className="h-[50px] md:h-[70px] w-auto object-contain" 
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
@@ -58,7 +58,7 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 text-sm text-white font-medium items-center">
+          <div className="hidden md:flex space-x-12 text-[15px] text-white font-manrope font-semibold items-center mx-auto">
               {navLinks.map((link) => (
                 <div 
                   key={link.name} 
@@ -83,9 +83,8 @@ const Navbar = () => {
               ))}
           </div>
           
-          <Link to="/contact" className="hidden md:block group relative overflow-hidden bg-white text-black px-6 py-2.5 font-bold text-[11px] tracking-widest uppercase rounded-md hover:scale-105 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.25)]">
-            <span className="relative z-10">Enroll Now</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+          <Link to="/contact" className="hidden md:flex items-center justify-center font-manrope bg-white text-black px-8 py-[14px] font-bold text-[11px] tracking-[1.5px] uppercase hover:bg-gray-100 transition-all duration-300 rounded-sm hover:scale-[1.02]">
+            Enroll Now
           </Link>
           
           {/* Mobile Menu Toggle */}

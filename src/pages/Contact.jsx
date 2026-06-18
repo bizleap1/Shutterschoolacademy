@@ -10,15 +10,15 @@ const Contact = () => {
   return (
     <div className="bg-[#000000] text-white min-h-screen font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Hero Section */}
-      <header className="relative h-[400px] bg-[#0A0A0A] border-b border-gray-900 flex flex-col justify-center px-12">
+      <header className="relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#0A0A0A] border-b border-gray-900 flex flex-col justify-center px-6 md:px-12">
         <div className="max-w-3xl mt-16 text-center mx-auto">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-tight text-white mb-4">GET IN TOUCH</h1>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">Whether you have a question about our courses, need to inquire about corporate training, or just want to say hello, we're here to help.</p>
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-white mb-4">GET IN TOUCH</h1>
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">Whether you have a question about our courses, need to inquire about our programs, or just want to say hello, we're here to help.</p>
         </div>
       </header>
 
       {/* Main Content */}
-      <section className="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+      <section className="py-16 md:py-20 px-4 md:px-12 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
 
           {/* Contact Information */}
@@ -60,7 +60,7 @@ const Contact = () => {
                 <div>
                   <h4 className="text-xs font-bold text-gray-500 mb-1 uppercase tracking-widest">Studio Location</h4>
                   <p className="text-sm text-gray-300 font-medium tracking-wide leading-relaxed max-w-xs">
-                    123 Creative Hub, Film City Road,<br />Goregaon East, Mumbai, 400065
+                    Shakti Nagar , Dahisar east , Mumbai
                   </p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Contact = () => {
                   <option value="Content Creation Course">Content Creation Course (The Creator)</option>
                   <option value="Prime Course">Prime Course (The Bridge)</option>
                   <option value="Expert Course">Expert Course (The Professional)</option>
-                  <option value="Corporate Training">Corporate Training</option>
+
                   <option value="Other">Other Inquiry</option>
                 </select>
               </div>

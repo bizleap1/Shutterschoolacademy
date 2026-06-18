@@ -12,41 +12,30 @@ const Home = () => {
     <div className="bg-[#000000] text-white min-h-screen font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* Hero Section */}
-      <header className="relative h-[85vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center px-12" style={{ backgroundImage: "url('/images/hero-main-hq.jpg')" }}>
-          <div className="max-w-3xl space-y-6 mt-16">
-              <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-tight text-white">MASTER THE CRAFT.<br/>BUILD THE BUSINESS.</h1>
-              <p className="text-gray-300 text-lg max-w-xl leading-relaxed">Learn photography, cinematography, lighting, editing, and the business skills needed to become a successful working creative.</p>
-              <div className="flex space-x-6 pt-6">
-                  <Link to="/contact" className="group relative overflow-hidden bg-white text-black px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-md hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] inline-block text-center">
-                    <span className="relative z-10">Enroll Now</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                  </Link>
-                  <Link to="/courses" className="group relative overflow-hidden border border-white/40 text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-md hover:border-white hover:bg-white/5 transition-all duration-500 inline-block text-center hover:scale-105">
-                    <span className="relative z-10">Explore Courses</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                  </Link>
+      <header className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url('/images/hero-main-updated.png')" }}>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          
+          <div className="relative z-10 w-full h-full flex flex-col justify-start pt-[20vh] sm:pt-[25vh] md:pt-[32vh] ml-4 sm:ml-6 md:ml-[clamp(28px,6vw,95px)] pr-4 sm:pr-6">
+              <div className="max-w-[820px] flex flex-col gap-4 md:gap-6">
+                  <h1 className="font-spartan font-[900] text-white uppercase text-[clamp(3rem,10vw,5.5rem)] leading-[1.15] md:leading-[0.9] tracking-[-1px] md:tracking-[-2px]">
+                    MASTER THE CRAFT.<br/>BUILD THE BUSINESS.
+                  </h1>
+                  <p className="font-manrope text-gray-200 max-w-[650px] text-[16px] sm:text-[clamp(0.9rem,1.1vw,1.2rem)] leading-[1.6] md:leading-[1.5] tracking-wide">
+                    Master the art, science, and business of professional photography to build a successful career behind the lens.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-[24px] pt-4 md:pt-2 items-start">
+                      <Link to="/contact" className="w-[80%] max-w-[280px] sm:w-auto font-manrope bg-white text-black px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-gray-100 transition-all duration-300 text-center flex items-center justify-center mx-auto sm:mx-0">Enroll Now</Link>
+                      <Link to="/courses" className="w-[80%] max-w-[280px] sm:w-auto font-manrope bg-transparent border border-white/20 backdrop-blur-md text-white px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-center flex items-center justify-center mx-auto sm:mx-0">Explore Courses</Link>
+                  </div>
               </div>
           </div>
       </header>
 
-      {/* Icon Strip Below Hero */}
-      <div className="bg-[#0A0A0A] grid grid-cols-5 gap-4 py-8 text-center border-b border-gray-900">
-          {[
-            { icon: Camera, label: 'Photography' },
-            { icon: Film, label: 'Cinematography' },
-            { icon: Lightbulb, label: 'Lighting' },
-            { icon: MonitorPlay, label: 'Editing' },
-            { icon: TrendingUp, label: 'Business' }
-          ].map((item, idx) => (
-            <div key={idx} className="text-gray-400 hover:text-white cursor-pointer transition flex flex-col items-center">
-              <item.icon className="w-6 h-6 block mb-2" strokeWidth={1.5} />
-              <span className="text-xs uppercase tracking-widest font-semibold">{item.label}</span>
-            </div>
-          ))}
-      </div>
+
 
       {/* Why Choose Us */}
-      <section className="bg-[#F9F9F9] text-black py-24 px-6 md:px-12 text-center relative overflow-hidden">
+      <section className="bg-[#F9F9F9] text-black py-16 md:py-24 px-6 md:px-12 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-50"></div>
           
           <div className="max-w-6xl mx-auto">
@@ -60,7 +49,7 @@ const Home = () => {
                   { icon: Lightbulb, title: 'Career & Business', desc: 'We prepare you to build a sustainable and profitable career.' }
                 ].map((feature, idx) => (
                   <div key={idx} className="group flex flex-col items-center p-8 bg-white rounded-sm border border-gray-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-16 h-16 rounded-full bg-[#F5F5F5] flex items-center justify-center mb-6 text-gray-700 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                      <div className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center mb-6 group-hover:bg-[#F5F5F5] group-hover:text-black transition-colors duration-300">
                         <feature.icon className="w-7 h-7" strokeWidth={1.5} />
                       </div>
                       <h3 className="font-bold text-sm tracking-wider uppercase mb-3 text-black">{feature.title}</h3>
@@ -72,14 +61,14 @@ const Home = () => {
       </section>
 
       {/* Featured Courses */}
-      <section className="bg-black py-20 px-12">
+      <section className="bg-black py-16 md:py-20 px-6 md:px-12">
           <div className="flex justify-between items-center mb-10 max-w-7xl mx-auto">
               <h2 className="text-xl font-bold uppercase tracking-wider">Featured Courses</h2>
               <Link to="/courses" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition">View All Courses &rarr;</Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
               {featuredCourses.map((course, idx) => (
-                <Link to="/courses" key={idx} className="relative h-72 bg-cover bg-center group overflow-hidden cursor-pointer rounded-sm border border-gray-900 hover:border-gray-600 transition-colors" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('${course.image}')` }}>
+                <Link to="/courses" key={idx} className="relative aspect-square bg-black group overflow-hidden cursor-pointer rounded-sm border border-gray-900 hover:border-gray-600 transition-colors" style={{ backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%), url('${course.image}')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
                     <div className="absolute top-4 left-4">
                       <span className="text-[9px] font-bold tracking-widest uppercase text-white bg-black/60 backdrop-blur-md px-2 py-1 rounded-sm border border-white/10">{course.duration}</span>
                     </div>
@@ -95,7 +84,7 @@ const Home = () => {
       </section>
 
       {/* Student Work Gallery */}
-      <section className="bg-black pb-20 px-12">
+      <section className="bg-black pb-16 md:pb-20 px-6 md:px-12">
           <div className="flex justify-between items-center mb-10 max-w-7xl mx-auto">
               <h2 className="text-xl font-bold uppercase tracking-wider">Student Work</h2>
               <Link to="/student-gallery" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition">View Gallery &rarr;</Link>
@@ -114,16 +103,16 @@ const Home = () => {
       </section>
 
       {/* Meet The Founders */}
-      <section className="bg-black py-24 px-6 md:px-12">
+      <section className="bg-black py-16 md:py-24 px-6 md:px-12">
           <div className="text-center mb-20 max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-heading font-black uppercase tracking-[0.1em]">MEET THE FOUNDERS</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 max-w-5xl mx-auto items-start">
               
-              {/* Founder 1 - Shifted Down */}
-              <div className="group md:mt-16">
-                  <div className="relative overflow-hidden border border-gray-900 aspect-[4/3] sm:aspect-square mb-6">
-                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800" className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Rohan Berde" />
+              {/* Founder 1 */}
+              <div className="group">
+                  <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
+                      <img src="/images/rohan-berde.png" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Rohan Berde" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>
@@ -137,10 +126,10 @@ const Home = () => {
                   </div>
               </div>
 
-              {/* Founder 2 - Standard Position */}
-              <div className="group md:mb-16">
-                  <div className="relative overflow-hidden border border-gray-900 aspect-[4/3] sm:aspect-square mb-6">
-                      <img src="/images/abhay-tiwari.jpg" className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
+              {/* Founder 2 */}
+              <div className="group">
+                  <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
+                      <img src="/images/abhay-tiwari-new.jpeg" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>
@@ -158,27 +147,22 @@ const Home = () => {
       </section>
 
       {/* Footer CTA */}
-      <footer className="relative bg-[#0A0A0A] text-white py-32 md:py-40 text-center px-6 md:px-12 overflow-hidden border-t border-gray-900">
-          {/* Logo as background with CSS background removal */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none select-none">
-              {/* This combination ensures the background disappears whether it's black or white */}
-              <img src="/logo.png" className="w-[120%] md:w-[60%] object-contain mix-blend-screen filter grayscale" alt="Shutter School Logo Background" />
-              <img src="/logo.png" className="absolute w-[120%] md:w-[60%] object-contain mix-blend-multiply filter grayscale invert opacity-50" alt="" />
-          </div>
+      <section className="relative bg-[#050505] text-white py-24 md:py-48 text-center px-6 md:px-12 overflow-hidden border-t border-gray-900 flex items-center justify-center">
+          {/* Subtle Spotlight Gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_70%)] pointer-events-none"></div>
           
-          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center justify-center">
+          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center justify-center space-y-12">
             
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black uppercase tracking-[0.1em] mb-12 leading-relaxed max-w-2xl">
-              READY TO TURN YOUR PASSION INTO A PROFESSION?
+            <h2 className="font-spartan font-[900] uppercase text-[clamp(2.5rem,4vw,4.5rem)] leading-[1.15] md:leading-[0.95] tracking-[-2px] text-white">
+              READY TO TURN YOUR PASSION<br className="hidden md:block"/> INTO A PROFESSION?
             </h2>
             
-            <Link to="/contact" className="group relative overflow-hidden inline-block bg-white text-black px-12 py-5 font-bold text-sm uppercase tracking-widest rounded-md hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)]">
-              <span className="relative z-10">Enroll Now</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            <Link to="/contact" className="font-manrope bg-white text-black px-12 py-[18px] font-bold text-[13px] tracking-[2px] uppercase hover:bg-gray-100 transition-all duration-300 rounded-sm hover:scale-[1.03] inline-block shadow-[0_0_40px_rgba(255,255,255,0.15)]">
+              Enroll Now
             </Link>
 
           </div>
-      </footer>
+      </section>
 
     </div>
   );

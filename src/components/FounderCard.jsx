@@ -14,7 +14,7 @@ const FounderCard = ({ founder, index }) => {
         <img 
           src={founder.image} 
           alt={founder.name}
-          className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+          className="w-full h-full object-cover object-top grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
           onError={(e) => {
              e.target.style.display = 'none';
              e.target.nextElementSibling.style.display = 'block';

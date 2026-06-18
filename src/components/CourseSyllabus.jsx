@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { courses } from '../data/courses';
 
-const CourseSyllabus = () => {
-  const [activeCourseId, setActiveCourseId] = useState(courses[0].id);
-  const [openAccordions, setOpenAccordions] = useState({ [courses[0].id]: true });
+const CourseSyllabus = ({ activeCourseId: externalActiveCourseId, setActiveCourseId: setExternalActiveCourseId }) => {
+  const [localActiveCourseId, setLocalActiveCourseId] = useState(courses[0].id);
+  
+  const activeCourseId = externalActiveCourseId || localActiveCourseId;
+  const setActiveCourseId = setExternalActiveCourseId || setLocalActiveCourseId;
+
+  const [openAccordions, setOpenAccordions] = useState({ [activeCourseId]: true });
+
+  useEffect(() => {
+    if (externalActiveCourseId) {
+      setOpenAccordions((prev) => ({ ...prev, [externalActiveCourseId]: true }));
+    }
+  }, [externalActiveCourseId]);
 
   const activeCourse = courses.find((c) => c.id === activeCourseId);
 
@@ -17,7 +27,7 @@ const CourseSyllabus = () => {
   };
 
   return (
-    <section className="py-24 bg-[#0A0A0A] border-t border-gray-900">
+    <section id="syllabus-section" className="py-16 md:py-24 bg-[#0A0A0A] border-t border-gray-900">
       <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">

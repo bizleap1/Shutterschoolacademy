@@ -6,7 +6,7 @@ const About = () => {
     {
       name: 'Rohan Berde',
       role: 'Co-Founder & Creative Lead',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800',
+      image: '/images/rohan-berde.png',
       bio: [
         "Shutter School’s curriculum is anchored in Rohan’s active, fast-paced career as a professional photographer and cinematographer. Rohan brings years of high-stakes, on-the-ground industry experience directly into the classroom.",
         "His portfolio spans a demanding spectrum of visual media—from capturing the electric energy of massive 3,000+ attendee arena concerts and scaling complex event logistics, to executing precision-driven commercial setups.",
@@ -16,7 +16,7 @@ const About = () => {
     {
       name: 'Abhay Tiwari',
       role: 'Co-Founder & Head of Business',
-      image: '/images/abhay-tiwari.jpg',
+      image: '/images/abhay-tiwari-new.jpeg',
       bio: [
         "A stunning visual portfolio is only half the equation; knowing how to monetize it is the other. As a Client Management and Business Expert, Abhay provides the strategic edge that most traditional film schools ignore.",
         "He equips students with the vital skills needed to transition from amateur creators to profitable business owners. From pitching and contract negotiation to client retention and managing the logistics of high-end shoots, Abhay ensures that Shutter School graduates are ready to navigate the corporate and freelance markets with total confidence."
@@ -26,27 +26,32 @@ const About = () => {
 
   return (
     <div className="bg-[#F5F2EC] min-h-screen">
-      {/* Dark Header Banner */}
-      <div className="bg-[#080808] pt-[200px] pb-32 px-4">
-        <div className="max-w-[800px] mx-auto text-left">
-           <h1 className="text-3xl font-heading font-bold uppercase tracking-widest text-[#F7F7F7] mb-2">About Us</h1>
-           <p className="text-[14px] text-[#B8B8B8] uppercase tracking-widest font-semibold mb-10">
+      {/* Premium Header Banner */}
+      <div className="relative bg-[#050505] pt-[140px] md:pt-[240px] pb-20 md:pb-40 px-6 md:px-12 overflow-hidden border-b border-gray-900">
+        {/* Subtle Spotlight Gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,255,255,0.05)_0%,rgba(0,0,0,0)_60%)] pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-[900px] mx-auto text-left">
+           <h1 className="font-spartan font-[900] uppercase text-[clamp(3.5rem,6vw,5.5rem)] leading-[1.1] md:leading-[0.9] tracking-[-2px] text-white mb-6">
+             ABOUT US
+           </h1>
+           <p className="font-manrope text-[12px] md:text-[14px] text-white uppercase tracking-[4px] font-bold mb-14 border-l-2 border-white pl-4">
              Master the Craft. Build the Business.
            </p>
            
-           <div className="text-[#B8B8B8] text-[14px] leading-relaxed space-y-6">
+           <div className="font-manrope text-gray-400 text-[15px] md:text-[17px] leading-[1.8] space-y-8 max-w-[750px] font-medium">
              <p>
                 At Shutter School, we believe that mastering the visual arts goes far beyond reading a manual—and surviving in the industry takes more than just a good portfolio. Founded by a creative professional and a business strategist, Shutter School was built to bridge the gap between classroom theory, real-world execution, and sustainable business growth.
              </p>
-             <p>
-                We don't just teach you how to operate a camera; we teach you how to thrive as a working professional.
+             <p className="text-gray-200 text-[16px] md:text-[18px]">
+                We don't just teach you how to operate a camera; <span className="text-white font-bold">we teach you how to thrive as a working professional.</span>
              </p>
            </div>
         </div>
       </div>
 
       {/* Meet the Founders */}
-      <section className="py-20 bg-[#080808] border-t border-[rgba(184,184,184,0.16)]">
+      <section className="py-16 md:py-20 bg-[#080808] border-t border-[rgba(184,184,184,0.16)]">
         <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-heading font-bold text-[#F7F7F7] uppercase tracking-widest mb-10">Meet the Founders</h2>
           
@@ -59,7 +64,7 @@ const About = () => {
       </section>
 
       {/* The Philosophy */}
-      <section className="py-24 bg-[#F5F2EC]">
+      <section className="py-16 md:py-24 bg-[#F5F2EC]">
         <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-heading font-bold text-[#111111] uppercase tracking-widest mb-6">The Shutter School Philosophy</h2>
           

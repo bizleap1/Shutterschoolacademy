@@ -26,6 +26,8 @@ export default {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         heading: ['Montserrat', 'sans-serif'],
+        spartan: ['"League Spartan"', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
       }
     },
   },
