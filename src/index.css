@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F5F2EC; /* off-white */
+    color: #111111; /* dark-text */
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+  
+  body {
+    @apply antialiased font-sans;
+    background-color: #F5F2EC;
+    color: #111111;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background-color: rgba(8, 8, 8, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #3A3A3A;
+  }
+  
+  .dark-section {
+    background-color: #080808;
+    color: #F7F7F7;
+  }
+
+  /* Manual color utilities to bypass Vite's crashed Tailwind watcher */
+  .text-light-text { color: #F7F7F7 !important; }
+  .text-dark-text { color: #111111 !important; }
+  .text-muted-text { color: #B8B8B8 !important; }
+  .text-secondary-text { color: #555555 !important; }
+  .text-shadow-grey { color: #3A3A3A !important; }
+  
+  .bg-matte-black { background-color: #080808 !important; }
+  .bg-charcoal { background-color: #151515 !important; }
+  .bg-graphite { background-color: #222222 !important; }
+  .bg-off-white { background-color: #F5F2EC !important; }
+  .bg-soft-ivory { background-color: #FAF8F3 !important; }
+  
+  .border-shadow-grey { border-color: #3A3A3A !important; }
+  .border-border-light { border-color: #D8D3C8 !important; }
+  .border-light-text { border-color: #F7F7F7 !important; }
+  .border-dark-text { border-color: #111111 !important; }
+  .border-muted-text { border-color: #B8B8B8 !important; }
+}

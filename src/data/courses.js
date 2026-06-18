@@ -1,0 +1,101 @@
+export const courses = [
+  {
+    id: 'foundation-course',
+    title: 'Foundation Course',
+    subtitle: 'The Starter',
+    duration: 'Up to 2 months',
+    description: 'Designed for those taking their first steps behind the lens to master the mechanics of their camera.',
+    image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800',
+    badge: 'Beginner Friendly',
+    level: 'Starter',
+    syllabus: [
+      'Anatomy of the Camera',
+      'The Power of Optics',
+      'Mastering Natural Light',
+      'The Art of Composition',
+      'Shooting in Manual Mode',
+      'Outdoor Practical Session 1',
+      'Outdoor Practical Session 2',
+      'Indoor Studio Practical Session',
+      'Workflow & Digital File Management',
+      'Portfolio Review & Critique',
+      'Advanced Exposure Techniques',
+      'Final Foundation Assessment'
+    ]
+  },
+  {
+    id: 'content-creation-course',
+    title: 'Content Creation Course',
+    subtitle: 'The Creator',
+    duration: '1 Month',
+    description: 'A focused, 8-session program teaching mobile photography and video skills for YouTube, vlogs, Instagram reels, and social media content.',
+    image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?w=800',
+    badge: 'Mobile & Social',
+    level: 'Creator',
+    syllabus: [
+      'Phone Photography Fundamentals',
+      'Mobile Videography Techniques',
+      'Lighting for Social Media',
+      'YouTube Video Structure & Vlogging',
+      'Instagram Reels & Story Strategy',
+      'Basic Video Editing Workflow',
+      'Content Planning & Curation',
+      'Final Social Media Portfolio Project'
+    ]
+  },
+  {
+    id: 'prime-course',
+    title: 'Prime Course',
+    subtitle: 'The Bridge',
+    duration: 'Up to 3 months',
+    description: 'Designed for photographers who have a grasp of the basics and are ready to bridge the gap toward professional mastery.',
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800',
+    badge: 'Intermediate',
+    level: 'Bridge',
+    syllabus: [
+      'Advanced Exposure Techniques',
+      'Mastering Natural Light',
+      'The Art of Composition',
+      'Shooting in Manual Mode',
+      'Outdoor Practical Session',
+      'Workflow & Digital File Management',
+      'Advanced Lighting Setups',
+      'Professional Portraiture',
+      'Fashion Photography',
+      'Intro to Makeup Workshop',
+      'Advanced Post-Processing & Colour Grading',
+      'Wedding Photography Masterclass',
+      'Professional Studio Practical Session 1',
+      'Professional Studio Practical Session 2',
+      'Indoor In-Studio Practical Session',
+      'Outdoor Practical Session',
+      'Guided Hands-on Practice',
+      'Business of Photography & Graduation Showcase'
+    ]
+  },
+  {
+    id: 'expert-course',
+    title: 'Expert Course',
+    subtitle: 'The Professional',
+    duration: '3 Months',
+    description: 'An advanced program for those ready to enter the professional world of wedding, fashion, and high-end studio photography.',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800',
+    badge: 'Advanced Pro',
+    level: 'Professional',
+    syllabusNote: 'Includes everything from Foundation Course, plus advanced professional modules.',
+    syllabus: [
+      'Advanced Lighting Setups',
+      'Professional Portraiture',
+      'Fashion Photography',
+      'Intro to Makeup Workshop',
+      'Advanced Post-Processing & Colour Grading',
+      'Wedding Photography Masterclass',
+      'Professional Studio Practical Session 1',
+      'Professional Studio Practical Session 2',
+      'Indoor In-Studio Practical Session',
+      'Outdoor Practical Session',
+      'Guided Hands-on Practice',
+      'Business of Photography & Graduation Showcase'
+    ]
+  }
+];
