@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { courses } from '../data/courses';
 
-const CourseDropdown = ({ isOpen, isMobile, closeMobileMenu }) => {
+const CourseDropdown = ({ isOpen, isMobile, closeDropdown }) => {
   const handleClick = () => {
-    if (closeMobileMenu) {
-      closeMobileMenu();
+    if (closeDropdown) {
+      closeDropdown();
     }
   };
 
@@ -65,6 +65,7 @@ const CourseDropdown = ({ isOpen, isMobile, closeMobileMenu }) => {
               <Link
                 key={course.id}
                 to="/courses"
+                onClick={handleClick}
                 className="group relative flex flex-col p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
@@ -85,7 +86,7 @@ const CourseDropdown = ({ isOpen, isMobile, closeMobileMenu }) => {
             ))}
           </div>
           <div className="p-2">
-            <Link to="/courses" className="flex items-center justify-center gap-2 w-full py-4 bg-white/5 hover:bg-white text-white hover:text-black rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 group">
+            <Link to="/courses" onClick={handleClick} className="flex items-center justify-center gap-2 w-full py-4 bg-white/5 hover:bg-white text-white hover:text-black rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 group">
               View Full Course Catalog 
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>

@@ -4,12 +4,12 @@ import { ChevronDown } from 'lucide-react';
 import { courses } from '../data/courses';
 
 const CourseSyllabus = ({ activeCourseId: externalActiveCourseId, setActiveCourseId: setExternalActiveCourseId }) => {
-  const [localActiveCourseId, setLocalActiveCourseId] = useState(courses[0].id);
+  const [localActiveCourseId, setLocalActiveCourseId] = useState(null);
   
-  const activeCourseId = externalActiveCourseId || localActiveCourseId;
+  const activeCourseId = externalActiveCourseId !== undefined ? externalActiveCourseId : localActiveCourseId;
   const setActiveCourseId = setExternalActiveCourseId || setLocalActiveCourseId;
 
-  const [openAccordions, setOpenAccordions] = useState({ [activeCourseId]: true });
+  const [openAccordions, setOpenAccordions] = useState(activeCourseId ? { [activeCourseId]: true } : {});
 
   useEffect(() => {
     if (externalActiveCourseId) {
@@ -57,10 +57,11 @@ const CourseSyllabus = ({ activeCourseId: externalActiveCourseId, setActiveCours
 
           {/* Right Content */}
           <div className="col-span-8 bg-[#111111] border border-gray-900 p-10 rounded-sm">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeCourse.id}
-                initial={{ opacity: 0, x: 10 }}
+            {activeCourse ? (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCourse.id}
+                  initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
                 transition={{ duration: 0.3 }}
@@ -85,6 +86,11 @@ const CourseSyllabus = ({ activeCourseId: externalActiveCourseId, setActiveCours
                 </div>
               </motion.div>
             </AnimatePresence>
+            ) : (
+              <div className="flex items-center justify-center h-full text-gray-500 text-sm uppercase tracking-widest min-h-[300px]">
+                Select a course to view its detailed syllabus
+              </div>
+            )}
           </div>
         </div>
 

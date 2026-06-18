@@ -27,10 +27,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobileMenuOpen]);
 
-  // Close mobile menu on route change
+  // Close menus on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsMobileCoursesOpen(false);
+    setIsCoursesHovered(false);
   }, [location.pathname]);
 
   const navLinks = [
@@ -68,6 +69,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={link.path}
+                    onClick={() => link.isDropdown && setIsCoursesHovered(false)}
                     className={`transition-all duration-300 border-b-2 py-1 ${
                       location.pathname === link.path 
                         ? 'text-white border-white' 
@@ -77,7 +79,11 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                   {link.isDropdown && (
-                    <CourseDropdown isOpen={isCoursesHovered} isMobile={false} />
+                    <CourseDropdown 
+                      isOpen={isCoursesHovered} 
+                      isMobile={false} 
+                      closeDropdown={() => setIsCoursesHovered(false)}
+                    />
                   )}
                 </div>
               ))}
@@ -124,7 +130,7 @@ const Navbar = () => {
                       <CourseDropdown 
                         isOpen={isMobileCoursesOpen} 
                         isMobile={true} 
-                        closeMobileMenu={() => setIsMobileMenuOpen(false)}
+                        closeDropdown={() => setIsMobileMenuOpen(false)}
                       />
                     </div>
                   ) : (

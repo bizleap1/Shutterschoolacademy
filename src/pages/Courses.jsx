@@ -4,7 +4,7 @@ import CourseSyllabus from '../components/CourseSyllabus';
 import { courses } from '../data/courses';
 
 const Courses = () => {
-  const [activeCourseId, setActiveCourseId] = useState(courses[0].id);
+  const [activeCourseId, setActiveCourseId] = useState(undefined);
   const handleViewSyllabus = (courseId) => {
     setActiveCourseId(courseId);
     setTimeout(() => {
