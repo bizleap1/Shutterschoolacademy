@@ -12,21 +12,43 @@ const Home = () => {
     <div className="bg-[#000000] text-white min-h-screen font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* Hero Section */}
-      <header className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url('/images/hero-main-updated.png')" }}>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+      <header className="relative min-h-[100svh] overflow-hidden">
+          {/* Background Video */}
+          {/* We use scale-125 anchored to the top-left. 
+              This explicitly forces the right and bottom edges (and thus the watermark) 
+              25% outside the viewable area, completely immune to aspect ratio centering quirks. */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0 scale-[1.25] origin-top-left"
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+          </video>
           
-          <div className="relative z-10 w-full h-full flex flex-col justify-start pt-[20vh] sm:pt-[25vh] md:pt-[32vh] ml-4 sm:ml-6 md:ml-[clamp(28px,6vw,95px)] pr-4 sm:pr-6">
-              <div className="max-w-[820px] flex flex-col gap-4 md:gap-6">
-                  <h1 className="font-spartan font-[900] text-white uppercase text-[clamp(3rem,10vw,5.5rem)] leading-[1.15] md:leading-[0.9] tracking-[-1px] md:tracking-[-2px]">
+          {/* Standard background gradient for desktop text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10 hidden sm:block"></div>
+          
+          {/* Mobile vertical gradient so text at bottom is readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 sm:hidden pointer-events-none"></div>
+          
+          {/* Subtle bottom gradient to blend the bottom edge smoothly without looking like a patch */}
+          <div className="absolute inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t from-black to-transparent z-10 pointer-events-none opacity-80"></div>
+          
+          {/* Content Container */}
+          <div className="relative z-20 w-full min-h-[100svh] flex flex-col justify-end pb-[20vh] sm:pb-0 sm:justify-start sm:pt-[25vh] md:pt-[32vh] px-5 sm:px-8 md:px-[clamp(28px,6vw,95px)]">
+              <div className="max-w-[820px] flex flex-col gap-6 md:gap-8">
+                  <h1 className="font-spartan font-[900] text-white uppercase text-[clamp(2.8rem,11vw,5.5rem)] leading-[1.1] md:leading-[0.9] tracking-[-1px] md:tracking-[-2px]">
                     MASTER THE CRAFT.<br/>BUILD THE BUSINESS.
                   </h1>
-                  <p className="font-manrope text-gray-200 max-w-[650px] text-[16px] sm:text-[clamp(0.9rem,1.1vw,1.2rem)] leading-[1.6] md:leading-[1.5] tracking-wide">
+                  <p className="font-manrope text-gray-200 max-w-[650px] text-[15px] sm:text-[clamp(0.9rem,1.1vw,1.2rem)] leading-[1.6] md:leading-[1.5] tracking-wide opacity-90">
                     Master the art, science, and business of professional photography to build a successful career behind the lens.
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-[24px] pt-4 md:pt-2 items-start">
-                      <Link to="/contact" className="w-[80%] max-w-[280px] sm:w-auto font-manrope bg-white text-black px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-gray-100 transition-all duration-300 text-center flex items-center justify-center mx-auto sm:mx-0">Enroll Now</Link>
-                      <Link to="/courses" className="w-[80%] max-w-[280px] sm:w-auto font-manrope bg-transparent border border-white/20 backdrop-blur-md text-white px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-center flex items-center justify-center mx-auto sm:mx-0">Explore Courses</Link>
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-[24px] pt-4 md:pt-2 w-full sm:w-auto items-stretch sm:items-start">
+                      <Link to="/contact" className="w-full sm:w-auto font-manrope bg-white text-black px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-gray-100 transition-all duration-300 text-center flex items-center justify-center">Enroll Now</Link>
+                      <Link to="/courses" className="w-full sm:w-auto font-manrope bg-transparent border border-white/20 backdrop-blur-md text-white px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-center flex items-center justify-center">Explore Courses</Link>
                   </div>
               </div>
           </div>
@@ -64,7 +86,7 @@ const Home = () => {
       <section className="bg-black py-16 md:py-20 px-6 md:px-12">
           <div className="flex justify-between items-center mb-10 max-w-7xl mx-auto">
               <h2 className="text-xl font-bold uppercase tracking-wider">Featured Courses</h2>
-              <Link to="/courses" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition">View All Courses &rarr;</Link>
+              <Link to="/courses" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition whitespace-nowrap flex items-center gap-1 text-right">View All Courses <span>&rarr;</span></Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
               {featuredCourses.map((course, idx) => (
@@ -87,7 +109,7 @@ const Home = () => {
       <section className="bg-black pb-16 md:pb-20 px-6 md:px-12">
           <div className="flex justify-between items-center mb-10 max-w-7xl mx-auto">
               <h2 className="text-xl font-bold uppercase tracking-wider">Student Work</h2>
-              <Link to="/student-gallery" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition">View Gallery &rarr;</Link>
+              <Link to="/student-gallery" className="text-sm font-semibold tracking-wider text-gray-400 hover:text-white uppercase transition whitespace-nowrap flex items-center gap-1 text-right">View Gallery <span>&rarr;</span></Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-7xl mx-auto">
               {[
@@ -147,13 +169,22 @@ const Home = () => {
       </section>
 
       {/* Footer CTA */}
-      <section className="relative bg-[#050505] text-white py-24 md:py-48 text-center px-6 md:px-12 overflow-hidden border-t border-gray-900 flex items-center justify-center">
+      <section 
+        className="relative text-white py-24 md:py-48 text-center px-6 md:px-12 overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/hero-main-updated.png')" }}
+      >
+          {/* Top blend gradient to merge seamlessly with the upper black section */}
+          <div className="absolute top-0 left-0 w-full h-32 md:h-48 bg-gradient-to-b from-black to-transparent z-0"></div>
+
+          {/* Subtle Overlay for readability */}
+          <div className="absolute inset-0 bg-black/30 z-0"></div>
+
           {/* Subtle Spotlight Gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_70%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_70%)] pointer-events-none z-0"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center justify-center space-y-12">
             
-            <h2 className="font-spartan font-[900] uppercase text-[clamp(2.5rem,4vw,4.5rem)] leading-[1.15] md:leading-[0.95] tracking-[-2px] text-white">
+            <h2 className="font-spartan font-[900] uppercase text-[clamp(1.8rem,8vw,2.5rem)] md:text-[clamp(2.5rem,4vw,4.5rem)] leading-[1.15] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-white px-4 md:px-0">
               READY TO TURN YOUR PASSION<br className="hidden md:block"/> INTO A PROFESSION?
             </h2>
             
