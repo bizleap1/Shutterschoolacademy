@@ -24,7 +24,7 @@ const CourseDropdown = ({ isOpen, isMobile, closeDropdown }) => {
               {courses.map((course) => (
                 <Link
                   key={course.id}
-                  to="/courses"
+                  to={`/courses/${course.id}`}
                   onClick={handleClick}
                   className="block p-4 mb-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                 >
@@ -64,7 +64,7 @@ const CourseDropdown = ({ isOpen, isMobile, closeDropdown }) => {
             {courses.map((course) => (
               <Link
                 key={course.id}
-                to="/courses"
+                to={`/courses/${course.id}`}
                 onClick={handleClick}
                 className="group relative flex flex-col p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
               >

@@ -47,15 +47,10 @@ const Navbar = () => {
       <nav className={`fixed w-full z-50 transition-all duration-300 flex justify-between items-center px-6 md:px-12 py-5 bg-transparent ${
         isVisible || isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
       }`}>
-          <Link to="/" className="flex items-center">
-              <img 
-                src="/logo-transparent.png" 
-                alt="Shutter School Logo" 
-                className="h-[50px] md:h-[70px] w-auto object-contain" 
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
+          <Link to="/" className="flex items-center group ml-2 md:ml-6">
+              <div className="origin-left transition-transform duration-300 group-hover:scale-[1.02]">
+                <img src="/logo-transparent.png" alt="Shutter School" className="h-16 md:h-20 w-auto" />
+              </div>
           </Link>
           
           {/* Desktop Nav */}

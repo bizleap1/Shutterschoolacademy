@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
   return (
     <footer className="bg-[#080808] text-[#F7F7F7] pt-20 pb-10 border-t border-[#3A3A3A]">
@@ -7,19 +6,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 mb-12 md:mb-20 font-manrope">
           
           <div className="col-span-1 sm:col-span-2 md:col-span-12 lg:col-span-4 pr-0 lg:pr-10">
-            <Link to="/" className="flex items-center gap-3 mb-8 group">
-              <img 
-                src="/logo-transparent.png" 
-                alt="Shutter School Logo" 
-                className="h-14 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'block';
-                }}
-              />
-              <span className="hidden text-xl font-heading font-bold tracking-[0.2em] uppercase">
-                Shutter <span className="font-light text-[#B8B8B8]">School</span>
-              </span>
+            <Link to="/" className="mb-8 block">
+              <div className="group transition-transform duration-300 hover:scale-[1.02] inline-block">
+                <img src="/logo-transparent.png" alt="Shutter School" className="h-20 md:h-24 w-auto mb-2 opacity-90 group-hover:opacity-100 transition-opacity" />
+              </div>
             </Link>
             <p className="text-[#B8B8B8] text-[15px] mb-8 leading-relaxed">
               Bridging the gap between classroom theory, real-world execution, and sustainable business growth.
@@ -76,8 +66,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Shutter School India. All rights reserved.
           </p>
           <div className="flex space-x-6 md:space-x-8 justify-center">
-            <a href="#" className="hover:text-[#F7F7F7] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#F7F7F7] transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-[#F7F7F7] transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#F7F7F7] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

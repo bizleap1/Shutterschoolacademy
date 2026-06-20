@@ -3,10 +3,12 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
+import CourseDetails from './pages/CourseDetails';
 import StudentGallery from './pages/StudentGallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
-
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 // Scroll to top component
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -54,9 +56,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:courseId" element={<CourseDetails />} />
             <Route path="/student-gallery" element={<StudentGallery />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsConditions />} />
           </Routes>
         </main>
         <Footer />

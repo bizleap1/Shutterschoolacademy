@@ -12,45 +12,81 @@ const Home = () => {
     <div className="bg-[#000000] text-white min-h-screen font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       
       {/* Hero Section */}
-      <header className="relative min-h-[100svh] overflow-hidden">
+      <header className="relative min-h-[100svh] overflow-hidden bg-[#050505]">
           {/* Background Video */}
-          {/* We use scale-125 anchored to the top-left. 
-              This explicitly forces the right and bottom edges (and thus the watermark) 
-              25% outside the viewable area, completely immune to aspect ratio centering quirks. */}
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover z-0 scale-[1.25] origin-top-left"
+          <motion.div
+            initial={{ scale: 1.2, opacity: 0 }}
+            animate={{ scale: 1.25, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute inset-0 w-full h-full z-0 origin-top-left"
           >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/videos/hero-video.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
           
-          {/* Standard background gradient for desktop text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10 hidden sm:block"></div>
+          {/* Gradients & Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent z-10 hidden sm:block"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 sm:hidden pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-black to-transparent z-10 pointer-events-none opacity-90"></div>
           
-          {/* Mobile vertical gradient so text at bottom is readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 sm:hidden pointer-events-none"></div>
-          
-          {/* Subtle bottom gradient to blend the bottom edge smoothly without looking like a patch */}
-          <div className="absolute inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t from-black to-transparent z-10 pointer-events-none opacity-80"></div>
+          {/* Grain overlay for cinematic feel */}
+          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] z-10 mix-blend-overlay pointer-events-none"></div>
           
           {/* Content Container */}
-          <div className="relative z-20 w-full min-h-[100svh] flex flex-col justify-end pb-[20vh] sm:pb-0 sm:justify-start sm:pt-[25vh] md:pt-[32vh] px-5 sm:px-8 md:px-[clamp(28px,6vw,95px)]">
-              <div className="max-w-[820px] flex flex-col gap-6 md:gap-8">
-                  <h1 className="font-spartan font-[900] text-white uppercase text-[clamp(2.8rem,11vw,5.5rem)] leading-[1.1] md:leading-[0.9] tracking-[-1px] md:tracking-[-2px]">
-                    MASTER THE CRAFT.<br/>BUILD THE BUSINESS.
+          <div className="relative z-20 w-full min-h-[100svh] flex flex-col justify-end pb-[25vh] sm:pb-0 sm:justify-start sm:pt-[22vh] md:pt-[25vh] px-6 sm:px-10 md:px-[clamp(32px,8vw,120px)]">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="max-w-[850px] flex flex-col gap-6 md:gap-8"
+              >
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="h-[1px] w-8 md:w-12 bg-[#B8B8B8]"></div>
+                    <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-[#B8B8B8]">
+                      Premium Photography Academy
+                    </span>
+                  </motion.div>
+
+                  <h1 className="font-heading font-black text-white uppercase text-[clamp(2rem,8vw,4rem)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] drop-shadow-2xl">
+                    LOVE PHOTOGRAPHY?<br/>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">
+                      LET'S MAKE IT YOUR CAREER.
+                    </span>
                   </h1>
-                  <p className="font-manrope text-gray-200 max-w-[650px] text-[15px] sm:text-[clamp(0.9rem,1.1vw,1.2rem)] leading-[1.6] md:leading-[1.5] tracking-wide opacity-90">
-                    Master the art, science, and business of professional photography to build a successful career behind the lens.
+                  
+                  <p className="font-manrope text-gray-300 max-w-[600px] text-[15px] sm:text-[clamp(1rem,1.2vw,1.3rem)] leading-[1.7] md:leading-[1.6] tracking-wide opacity-90">
+                    A modern curriculum designed to bridge the gap between classroom theory, real-world execution, and sustainable business growth.
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-[24px] pt-4 md:pt-2 w-full sm:w-auto items-stretch sm:items-start">
-                      <Link to="/contact" className="w-full sm:w-auto font-manrope bg-white text-black px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-gray-100 transition-all duration-300 text-center flex items-center justify-center">Enroll Now</Link>
-                      <Link to="/courses" className="w-full sm:w-auto font-manrope bg-transparent border border-white/20 backdrop-blur-md text-white px-8 py-4 md:py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-center flex items-center justify-center">Explore Courses</Link>
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-6 md:pt-4 w-full sm:w-auto items-stretch sm:items-center">
+                      <Link 
+                        to="/courses" 
+                        className="group relative overflow-hidden font-manrope bg-white text-black px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase transition-all duration-300 text-center flex items-center justify-center rounded-sm hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:scale-[1.02]"
+                      >
+                        <span className="relative z-10">Explore Courses</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                      </Link>
+                      
+                      <Link 
+                        to="/contact" 
+                        className="group font-manrope bg-transparent border border-white/20 backdrop-blur-sm text-white px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white hover:text-black transition-all duration-500 text-center flex items-center justify-center rounded-sm"
+                      >
+                        Contact Us
+                      </Link>
                   </div>
-              </div>
+              </motion.div>
           </div>
       </header>
 
@@ -90,7 +126,12 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
               {featuredCourses.map((course, idx) => (
-                <Link to="/courses" key={idx} className="relative aspect-square bg-black group overflow-hidden cursor-pointer rounded-sm border border-gray-900 hover:border-gray-600 transition-colors" style={{ backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%), url('${course.image}')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+                <Link 
+                  key={idx} 
+                  to={`/courses/${course.id}`}
+                  className="relative aspect-square bg-black group overflow-hidden cursor-pointer rounded-sm border border-gray-900 hover:border-gray-600 transition-colors" 
+                  style={{ backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%), url('${course.image}')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+                >
                     <div className="absolute top-4 left-4">
                       <span className="text-[9px] font-bold tracking-widest uppercase text-white bg-black/60 backdrop-blur-md px-2 py-1 rounded-sm border border-white/10">{course.duration}</span>
                     </div>
@@ -171,7 +212,7 @@ const Home = () => {
       {/* Footer CTA */}
       <section 
         className="relative text-white py-24 md:py-48 text-center px-6 md:px-12 overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero-main-updated.png')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1554046920-90dcac024a1e?auto=format&fit=crop&q=80&w=1500')" }}
       >
           {/* Top blend gradient to merge seamlessly with the upper black section */}
           <div className="absolute top-0 left-0 w-full h-32 md:h-48 bg-gradient-to-b from-black to-transparent z-0"></div>

@@ -5,7 +5,7 @@ export const courses = [
     subtitle: 'The Starter',
     duration: 'Up to 2 months',
     description: 'Designed for those taking their first steps behind the lens to master the mechanics of their camera.',
-    image: '/images/foundation-course.png',
+    image: '/images/course_foundation.png',
     badge: 'Beginner Friendly',
     level: 'Starter',
     syllabus: [
@@ -29,7 +29,7 @@ export const courses = [
     subtitle: 'The Creator',
     duration: '1 Month',
     description: 'A focused, 8-session program teaching Basic of Camera & mobile photography with video shooting and editing skills for YouTube, vlogs, Instagram reels, and social media content.',
-    image: '/images/content-creation-course.png',
+    image: '/images/course_content.png',
     badge: 'Mobile & Social',
     level: 'Creator',
     syllabus: [
@@ -49,7 +49,7 @@ export const courses = [
     subtitle: 'The Bridge',
     duration: 'Up to 3 months',
     description: '( Some of Foundation Course sessions + Expert Course )',
-    image: '/images/prime-course.png',
+    image: '/images/course_prime.png',
     badge: 'Intermediate',
     level: 'Bridge',
     syllabus: [
@@ -79,7 +79,7 @@ export const courses = [
     subtitle: 'The Professional',
     duration: '3 Months',
     description: 'An advanced program for those ready to enter the professional world of wedding, fashion, and high-end studio photography.',
-    image: '/images/expert-course-new.png',
+    image: '/images/course_expert.png',
     badge: 'Advanced Pro',
     level: 'Professional',
     syllabusNote: 'Includes everything from Foundation Course, plus advanced professional modules.',

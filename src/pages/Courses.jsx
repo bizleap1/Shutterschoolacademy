@@ -1,21 +1,12 @@
-import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CourseCard from '../components/CourseCard';
-import CourseSyllabus from '../components/CourseSyllabus';
 import { courses } from '../data/courses';
 
 const Courses = () => {
-  const [activeCourseId, setActiveCourseId] = useState(undefined);
-  const handleViewSyllabus = (courseId) => {
-    setActiveCourseId(courseId);
-    setTimeout(() => {
-      const element = document.getElementById('syllabus-section');
-      if (element) {
-        // Offset for sticky nav
-        const yOffset = -80; 
-        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    }, 100);
+  const navigate = useNavigate();
+
+  const handleOpenCourse = (courseId) => {
+    navigate(`/courses/${courseId}`);
   };
 
   return (
@@ -38,17 +29,12 @@ const Courses = () => {
               key={course.id} 
               course={course} 
               index={index} 
-              onViewSyllabus={() => handleViewSyllabus(course.id)}
+              onClick={() => handleOpenCourse(course.id)}
             />
           ))}
         </div>
       </div>
 
-      {/* Syllabus Section */}
-      <CourseSyllabus 
-        activeCourseId={activeCourseId} 
-        setActiveCourseId={setActiveCourseId} 
-      />
     </div>
   );
 };
