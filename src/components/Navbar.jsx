@@ -49,7 +49,7 @@ const Navbar = () => {
       }`}>
           <Link to="/" className="flex items-center">
               <img 
-                src="/logo.png" 
+                src="/logo-transparent.png" 
                 alt="Shutter School Logo" 
                 className="h-[50px] md:h-[70px] w-auto object-contain" 
                 onError={(e) => {

@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="col-span-1 sm:col-span-2 md:col-span-12 lg:col-span-4 pr-0 lg:pr-10">
             <Link to="/" className="flex items-center gap-3 mb-8 group">
               <img 
-                src="/logo.png" 
+                src="/logo-transparent.png" 
                 alt="Shutter School Logo" 
                 className="h-14 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
                 onError={(e) => {

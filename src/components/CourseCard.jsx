@@ -22,14 +22,13 @@ const CourseCard = ({ course, index, onViewSyllabus }) => {
         />
         {/* Badge */}
         {course.badge && (
-          <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border border-white/10">
+          <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-bold tracking-widest uppercase px-3 sm:px-4 py-1.5 rounded-full border border-white/10 shadow-lg">
             {course.badge}
           </div>
         )}
       </div>
       
       <div className="p-6 md:p-8 flex flex-col flex-grow relative">
-        {/* Duration */}
         <div className="flex items-center gap-1.5 text-gray-500 mb-4">
           <Clock className="w-3.5 h-3.5" />
           <span className="text-[10px] font-bold tracking-widest uppercase">{course.duration}</span>
