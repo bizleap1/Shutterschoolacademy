@@ -18,25 +18,26 @@ const CourseDropdown = ({ isOpen, isMobile, closeDropdown }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden bg-black/50 backdrop-blur-md border-t border-b border-white/10"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden bg-white/[0.02]"
           >
-            <div className="py-2 px-2">
+            <div className="py-2 pl-4 border-l border-white/10 my-2 ml-2">
               {courses.map((course) => (
                 <Link
                   key={course.id}
                   to={`/courses/${course.id}`}
                   onClick={handleClick}
-                  className="block p-4 mb-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className="group block p-4 mb-1 text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-300"
                 >
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-semibold tracking-wide">{course.title}</span>
-                    <span className="text-[10px] uppercase tracking-widest bg-white/10 px-2 py-1 rounded-full text-gray-300">{course.duration}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[12px] font-semibold tracking-wide group-hover:translate-x-1 transition-transform">{course.title}</span>
+                    <span className="text-[9px] uppercase tracking-[0.2em] bg-white/5 border border-white/10 px-2 py-1 text-gray-500 group-hover:text-gray-300 transition-colors">{course.duration}</span>
                   </div>
                 </Link>
               ))}
-              <div className="p-4 mt-2">
-                <Link to="/courses" onClick={handleClick} className="w-full py-3 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
-                  View All Courses <ChevronRight className="w-4 h-4" />
+              <div className="p-2 mt-1">
+                <Link to="/courses" onClick={handleClick} className="w-full py-4 bg-white/5 border border-white/10 text-white text-[10px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white hover:text-black transition-colors group">
+                  View All Courses <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>

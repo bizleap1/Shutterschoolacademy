@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
 import StudentGallery from './pages/StudentGallery';
+import HallOfFame from './pages/HallOfFame';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -35,14 +36,17 @@ function App() {
       touchMultiplier: 2,
     });
 
+    let rafId;
+
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
@@ -58,6 +62,7 @@ function App() {
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:courseId" element={<CourseDetails />} />
             <Route path="/student-gallery" element={<StudentGallery />} />
+            <Route path="/hall-of-fame" element={<HallOfFame />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

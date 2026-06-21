@@ -25,69 +25,122 @@ const Home = () => {
               loop 
               muted 
               playsInline
-              className="w-full h-full object-cover"
+              preload="auto"
+              disablePictureInPicture
+              className="w-full h-full object-cover md:object-center object-[center_38%] scale-[1.06] md:scale-100"
             >
               <source src="/videos/hero-video.mp4" type="video/mp4" />
             </video>
           </motion.div>
           
-          {/* Gradients & Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent z-10 hidden sm:block"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 sm:hidden pointer-events-none"></div>
-          <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-black to-transparent z-10 pointer-events-none opacity-90"></div>
+          {/* Gradients & Overlays (Desktop) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent z-10 hidden md:block pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-black to-transparent z-10 hidden md:block pointer-events-none opacity-90"></div>
+          
+          {/* Gradients & Overlays (Mobile) */}
+          <div className="absolute inset-0 bg-black/30 z-10 md:hidden pointer-events-none"></div>
+          <div className="absolute inset-x-0 top-0 h-[25vh] bg-gradient-to-b from-[#050505]/90 via-[#050505]/40 to-transparent z-10 md:hidden pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[80vh] bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent z-10 md:hidden pointer-events-none"></div>
           
           {/* Grain overlay for cinematic feel */}
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] z-10 mix-blend-overlay pointer-events-none"></div>
           
           {/* Content Container */}
-          <div className="relative z-20 w-full min-h-[100svh] flex flex-col justify-end pb-[25vh] sm:pb-0 sm:justify-start sm:pt-[22vh] md:pt-[25vh] px-6 sm:px-10 md:px-[clamp(32px,8vw,120px)]">
+          <div className="relative z-20 w-full min-h-[100svh] flex flex-col justify-start pt-[24vh] md:pt-[25vh] px-[24px] md:px-[clamp(32px,8vw,120px)]">
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="max-w-[850px] flex flex-col gap-6 md:gap-8"
+                className="max-w-[850px] flex flex-col gap-4 md:gap-8"
               >
+                  {/* Eyebrow */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="h-[1px] w-8 md:w-12 bg-[#B8B8B8]"></div>
-                    <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-[#B8B8B8]">
+                    <div className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-white to-gray-500 md:from-[#B8B8B8] md:to-[#B8B8B8]"></div>
+                    <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-gray-300 md:text-[#B8B8B8] drop-shadow-md">
                       Premium Photography Academy
                     </span>
                   </motion.div>
 
-                  <h1 className="font-heading font-black text-white uppercase text-[clamp(2rem,8vw,4rem)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] drop-shadow-2xl">
+                  {/* Desktop Headline */}
+                  <h1 className="hidden md:block font-heading font-black text-white uppercase text-[clamp(2rem,8vw,4rem)] leading-[0.95] tracking-[-2px] drop-shadow-2xl">
                     LOVE PHOTOGRAPHY?<br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">
                       LET'S MAKE IT YOUR CAREER.
                     </span>
                   </h1>
+
+                  {/* Mobile Headline */}
+                  <h1 className="md:hidden font-heading font-bold text-white text-[2.4rem] leading-[1.1] tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
+                    Love Photography?<br/>
+                    Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">Creative Career.</span>
+                  </h1>
                   
-                  <p className="font-manrope text-gray-300 max-w-[600px] text-[15px] sm:text-[clamp(1rem,1.2vw,1.3rem)] leading-[1.7] md:leading-[1.6] tracking-wide opacity-90">
+                  {/* Desktop Subtitle */}
+                  <p className="hidden md:block font-manrope text-gray-300 max-w-[600px] text-[clamp(1rem,1.2vw,1.3rem)] leading-[1.6] tracking-wide opacity-90">
                     A modern curriculum designed to bridge the gap between classroom theory, real-world execution, and sustainable business growth.
                   </p>
+
+                  {/* Mobile Subtitle */}
+                  <p className="md:hidden font-manrope text-gray-200 text-[15px] leading-[1.65] tracking-wide opacity-90 max-w-[95%] drop-shadow-md mt-1">
+                    Learn camera fundamentals, lighting, composition, editing, and real-world photography skills through a modern practical curriculum.
+                  </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-6 md:pt-4 w-full sm:w-auto items-stretch sm:items-center">
+                  {/* Buttons */}
+                  <div className="flex flex-col md:flex-row gap-3 md:gap-6 pt-5 md:pt-4 w-full md:w-auto items-stretch md:items-center">
+                      {/* Mobile Primary Button */}
                       <Link 
                         to="/courses" 
-                        className="group relative overflow-hidden font-manrope bg-white text-black px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase transition-all duration-300 text-center flex items-center justify-center rounded-sm hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:scale-[1.02]"
+                        className="md:hidden group relative overflow-hidden font-manrope bg-white text-black px-8 py-[16px] font-bold text-[13px] tracking-[2px] uppercase transition-all duration-300 text-center flex items-center justify-center rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-[1.02]"
+                      >
+                        <span className="relative z-10 flex items-center gap-2">Explore Courses <span className="text-lg leading-none">&rarr;</span></span>
+                      </Link>
+
+                      {/* Desktop Primary Button */}
+                      <Link 
+                        to="/courses" 
+                        className="hidden md:flex group relative overflow-hidden font-manrope bg-white text-black px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase transition-all duration-300 text-center items-center justify-center rounded-sm hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:scale-[1.02]"
                       >
                         <span className="relative z-10">Explore Courses</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                       </Link>
                       
+                      {/* Mobile Secondary Button */}
                       <Link 
                         to="/contact" 
-                        className="group font-manrope bg-transparent border border-white/20 backdrop-blur-sm text-white px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white hover:text-black transition-all duration-500 text-center flex items-center justify-center rounded-sm"
+                        className="md:hidden group font-manrope bg-black/20 backdrop-blur-md border border-white/20 text-white px-8 py-[16px] font-bold text-[13px] tracking-[2px] uppercase transition-all duration-300 text-center flex items-center justify-center rounded-sm hover:bg-white/10"
+                      >
+                        Contact Us
+                      </Link>
+
+                      {/* Desktop Secondary Button */}
+                      <Link 
+                        to="/contact" 
+                        className="hidden md:flex group font-manrope bg-transparent border border-white/20 backdrop-blur-sm text-white px-8 py-[18px] font-bold text-[13px] md:text-sm tracking-[2px] uppercase hover:bg-white hover:text-black transition-all duration-500 text-center items-center justify-center rounded-sm"
                       >
                         Contact Us
                       </Link>
                   </div>
+
+                  {/* Mobile Trust Indicators */}
+                  <div className="md:hidden pt-3 pb-2">
+                    <p className="text-gray-400 text-[9px] font-bold tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 flex-wrap">
+                      <span>Studio Training</span>
+                      <span className="text-gray-600">•</span>
+                      <span>Outdoor Shoots</span>
+                      <span className="text-gray-600">•</span>
+                      <span>Portfolio Building</span>
+                    </p>
+                  </div>
               </motion.div>
           </div>
+
+          {/* Mobile Radial Glow */}
+          <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.04)_0%,rgba(0,0,0,0)_60%)] md:hidden pointer-events-none z-10 mix-blend-screen"></div>
       </header>
 
 
@@ -160,7 +213,7 @@ const Home = () => {
                 'https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?w=400',
                 'https://images.unsplash.com/photo-1493612276216-ee3925520721?w=400'
               ].map((src, idx) => (
-                <img key={idx} src={src} className="h-48 w-full object-cover rounded-sm filter brightness-75 hover:brightness-100 transition" alt="Student Work" />
+                <img key={idx} src={src} loading="lazy" decoding="async" className="h-48 w-full object-cover rounded-sm filter brightness-75 hover:brightness-100 transition" alt="Student Work" />
               ))}
           </div>
       </section>
@@ -175,7 +228,7 @@ const Home = () => {
               {/* Founder 1 */}
               <div className="group">
                   <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
-                      <img src="/images/rohan-berde.png" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Rohan Berde" />
+                      <img src="/images/rohan-berde.png" loading="lazy" decoding="async" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Rohan Berde" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>
@@ -192,7 +245,7 @@ const Home = () => {
               {/* Founder 2 */}
               <div className="group">
                   <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
-                      <img src="/images/abhay-tiwari-new.jpeg" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
+                      <img src="/images/abhay-tiwari-new.jpeg" loading="lazy" decoding="async" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>

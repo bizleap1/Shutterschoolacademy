@@ -46,7 +46,7 @@ ${message}`;
             transition={{ duration: 0.6 }}
             className="bg-[#0A0A0A] p-8 md:p-10 rounded-sm border border-gray-900 order-1 lg:order-1"
           >
-            <h2 className="text-xl font-bold uppercase tracking-wider mb-8">Send a Message</h2>
+            <h2 className="text-xl font-bold uppercase tracking-wider mb-8">Enrollment Form</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -119,7 +119,7 @@ ${message}`;
               </div>
 
               <button type="submit" className="w-full group relative overflow-hidden bg-white text-black px-6 py-4 font-bold text-xs uppercase tracking-widest rounded-md hover:scale-[1.02] transition-all duration-500 mt-4 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]">
-                <span className="relative z-10">Send Message</span>
+                <span className="relative z-10">Submit details</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
               </button>
             </form>

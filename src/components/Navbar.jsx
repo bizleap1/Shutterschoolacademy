@@ -37,7 +37,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Courses', path: '/courses', isDropdown: true },
-    { name: 'Student Gallery', path: '/student-gallery' },
+    { name: 'Our Students', path: '/student-gallery' },
+    { name: 'Hall of Fame', path: '/hall-of-fame' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -48,8 +49,8 @@ const Navbar = () => {
         isVisible || isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
       }`}>
           <Link to="/" className="flex items-center group ml-2 md:ml-6">
-              <div className="origin-left transition-transform duration-300 group-hover:scale-[1.02]">
-                <img src="/logo-transparent.png" alt="Shutter School" className="h-16 md:h-20 w-auto" />
+              <div className="origin-left transition-transform duration-300 group-hover:scale-[1.02] mt-1 md:mt-0">
+                <img src="/logo-transparent.png" alt="Shutter School" className="h-[72px] md:h-20 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" />
               </div>
           </Link>
           
@@ -89,12 +90,12 @@ const Navbar = () => {
           </Link>
           
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
+          <div className="md:hidden relative z-[60]">
             <button 
-              className="text-white p-2" 
+              className="p-2 transition-transform duration-300" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-8 w-8 text-white hover:scale-110 transition-transform" strokeWidth={1.5} /> : <Menu className="h-7 w-7 text-white" />}
             </button>
           </div>
       </nav>
@@ -103,49 +104,81 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#000000] pt-24 px-6 md:hidden overflow-y-auto"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-50 bg-gradient-to-b from-[#050505] to-[#111111] md:hidden overflow-y-auto flex flex-col"
           >
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <div key={link.name}>
-                  {link.isDropdown ? (
-                    <div>
-                      <button 
-                        onClick={() => setIsMobileCoursesOpen(!isMobileCoursesOpen)}
-                        className="w-full flex justify-between items-center text-lg font-bold text-white uppercase tracking-widest py-4 border-b border-gray-900"
-                      >
-                        {link.name}
-                        <span className={`transform transition-transform ${isMobileCoursesOpen ? 'rotate-180' : ''}`}>
-                          ▼
-                        </span>
-                      </button>
-                      <CourseDropdown 
-                        isOpen={isMobileCoursesOpen} 
-                        isMobile={true} 
-                        closeDropdown={() => setIsMobileMenuOpen(false)}
-                      />
-                    </div>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-lg font-bold text-white uppercase tracking-widest py-4 border-b border-gray-900"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <Link 
-                to="/contact" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-8 block w-full text-center bg-white text-black px-6 py-4 font-bold text-xs tracking-widest uppercase rounded-sm"
+            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none"></div>
+            
+            <div className="flex-1 px-8 pt-[120px] pb-10 flex flex-col relative z-10">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } }
+                }}
+                initial="hidden"
+                animate="show"
+                className="flex flex-col w-full"
               >
-                Enroll Now
-              </Link>
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <motion.div key={link.name} variants={{ hidden: { opacity: 0, x: 20 }, show: { opacity: 1, x: 0 } }}>
+                      {link.isDropdown ? (
+                        <div className="border-b border-white/5">
+                          <button 
+                            onClick={() => setIsMobileCoursesOpen(!isMobileCoursesOpen)}
+                            className="w-full flex justify-between items-center text-[13px] font-bold text-gray-300 uppercase tracking-[0.2em] py-6 group"
+                          >
+                            <span className="group-hover:text-white transition-colors group-hover:translate-x-2 duration-300">{link.name}</span>
+                            <span className={`transform transition-transform duration-300 ${isMobileCoursesOpen ? 'rotate-180 text-white' : 'text-gray-600'}`}>
+                              ▼
+                            </span>
+                          </button>
+                          <CourseDropdown 
+                            isOpen={isMobileCoursesOpen} 
+                            isMobile={true} 
+                            closeDropdown={() => setIsMobileMenuOpen(false)}
+                          />
+                        </div>
+                      ) : (
+                        <Link
+                          to={link.path}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`group block w-full py-6 border-b transition-all duration-300
+                            ${isActive ? 'bg-white/5 pl-4 border-l-2 border-l-white border-b-white/5' : 'border-b-white/5 hover:bg-white/5 hover:pl-4'}
+                          `}
+                        >
+                          <span className={`text-[13px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-300 group-hover:text-white'}`}>
+                            {link.name}
+                          </span>
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="mt-auto pt-10"
+              >
+                <Link 
+                  to="/contact" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="group relative overflow-hidden flex items-center justify-center w-full bg-white text-black px-6 py-[18px] font-bold text-[13px] tracking-[2px] uppercase rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform hover:scale-[1.02]"
+                >
+                  <span className="relative z-10 flex items-center gap-2">Enroll Now <span className="text-lg leading-none transition-transform group-hover:translate-x-1">&rarr;</span></span>
+                </Link>
+                
+                <div className="mt-8 text-center">
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-bold">Shutterschool Photography Academy</span>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

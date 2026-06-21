@@ -7,6 +7,7 @@ const About = () => {
       name: 'Rohan Berde',
       role: 'Co-Founder & Creative Lead',
       image: '/images/rohan-berde.png',
+      instagram: 'https://www.instagram.com/rohanberde?utm_source=qr&igsh=cTRkbWNiOTRjNXhp',
       bio: [
         "Shutter School’s curriculum is anchored in Rohan’s active, fast-paced career as a professional photographer and cinematographer. Rohan brings years of high-stakes, on-the-ground industry experience directly into the classroom.",
         "His portfolio spans a demanding spectrum of visual media—from capturing the electric energy of massive 3,000+ attendee arena concerts and scaling complex event logistics, to executing precision-driven commercial setups.",

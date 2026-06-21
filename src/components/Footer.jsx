@@ -1,20 +1,28 @@
 import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer className="bg-[#080808] text-[#F7F7F7] pt-20 pb-10 border-t border-[#3A3A3A]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 mb-12 md:mb-20 font-manrope">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-y-10 gap-x-6 md:gap-10 lg:gap-16 mb-12 md:mb-20 font-manrope">
           
-          <div className="col-span-1 sm:col-span-2 md:col-span-12 lg:col-span-4 pr-0 lg:pr-10">
-            <Link to="/" className="mb-8 block">
-              <div className="group transition-transform duration-300 hover:scale-[1.02] inline-block">
-                <img src="/logo-transparent.png" alt="Shutter School" className="h-20 md:h-24 w-auto mb-2 opacity-90 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </Link>
-            <p className="text-[#B8B8B8] text-[15px] mb-8 leading-relaxed">
-              Bridging the gap between classroom theory, real-world execution, and sustainable business growth.
-            </p>
-            <div className="flex space-x-4">
+          <div className="col-span-2 md:col-span-12 lg:col-span-4 xl:col-span-4 pr-0 lg:pr-6 text-left">
+            <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-6 mb-8 md:mb-10">
+              <Link to="/" className="shrink-0 inline-block">
+                <div className="group transition-transform duration-300 hover:scale-[1.02]">
+                  <img src="/logo-transparent.png" alt="Shutter School" className="h-16 md:h-20 w-auto opacity-90 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </Link>
+              
+              {/* Sleek Vertical Separator */}
+              <div className="hidden md:block w-px h-12 bg-white/10 shrink-0"></div>
+              
+              <p className="text-[#888888] text-[13px] leading-[1.7] max-w-[280px] pt-2 md:pt-0">
+                Bridging the gap between classroom theory, real-world execution, and sustainable business growth.
+              </p>
+            </div>
+            <div className="flex space-x-5">
               <a href="https://www.instagram.com/shutterschoolmumbai?igsh=NmVwODhhZ3UxcG9z" target="_blank" rel="noopener noreferrer" className="bg-[#111] p-2.5 rounded-sm border border-[#3A3A3A] text-gray-400 hover:text-white hover:bg-[#222] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
               </a>
@@ -27,7 +35,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-4 lg:col-span-2">
+          <div className="col-span-1 md:col-span-4 lg:col-span-2 text-left">
             <h3 className="text-sm font-spartan font-bold mb-6 md:mb-8 tracking-widest uppercase text-[#777777]">Quick Links</h3>
             <ul className="space-y-4 md:space-y-6">
               <li><Link to="/courses" className="text-[#F7F7F7] hover:text-[#B8B8B8] transition-colors text-[15px] font-medium">Courses</Link></li>
@@ -37,7 +45,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-4 lg:col-span-3">
+          <div className="col-span-1 md:col-span-4 lg:col-span-3 text-left">
             <h3 className="text-sm font-spartan font-bold mb-6 md:mb-8 tracking-widest uppercase text-[#777777]">Courses</h3>
             <ul className="space-y-4 md:space-y-6">
               <li><Link to="/courses" className="text-[#F7F7F7] hover:text-[#B8B8B8] transition-colors text-[15px] font-medium">Foundation Course</Link></li>
@@ -47,15 +55,25 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-4 lg:col-span-3">
+          <div className="col-span-2 md:col-span-4 lg:col-span-3 text-left pt-4 md:pt-0 border-t border-[#111] md:border-none mt-2 md:mt-0">
             <h3 className="text-sm font-spartan font-bold mb-6 md:mb-8 tracking-widest uppercase text-[#777777]">Contact Us</h3>
-            <ul className="space-y-4 md:space-y-6 text-[15px] font-medium text-[#F7F7F7]">
-              <li>+91 9619994477</li>
-              <li>+91 9619994466</li>
-              <li>
-                <a href="mailto:shutterschoolindia@gmail.com" className="hover:text-[#B8B8B8] transition-colors tracking-wide break-all">shutterschoolindia@gmail.com</a>
+            <ul className="space-y-5 md:space-y-6 text-[14px] md:text-[15px] font-medium text-[#F7F7F7]">
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-[#777777] shrink-0 mt-[2px]" />
+                <a href="tel:+919619994477" className="hover:text-[#B8B8B8] transition-colors">+91 9619994477</a>
               </li>
-              <li className="text-[#B8B8B8] font-normal pt-2 leading-relaxed max-w-[250px]">Shakti Nagar, Dahisar East, Mumbai</li>
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-[#777777] shrink-0 mt-[2px]" />
+                <a href="tel:+919619994466" className="hover:text-[#B8B8B8] transition-colors">+91 9619994466</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-[#777777] shrink-0 mt-[2px]" />
+                <a href="mailto:shutterschoolindia@gmail.com" className="hover:text-[#B8B8B8] transition-colors tracking-wide break-words">shutterschoolindia@gmail.com</a>
+              </li>
+              <li className="flex items-start gap-3 text-[#B8B8B8] font-normal pt-1 leading-relaxed max-w-[250px]">
+                <MapPin className="w-4 h-4 text-[#777777] shrink-0 mt-[2px]" />
+                <span>Shakti Nagar, Dahisar East, Mumbai</span>
+              </li>
             </ul>
           </div>
 
