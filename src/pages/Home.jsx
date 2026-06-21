@@ -236,7 +236,7 @@ const Home = () => {
               {/* Founder 2 */}
               <div className="group">
                   <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
-                      <img src="/images/abhay.png" loading="lazy" decoding="async" className="w-full h-full object-cover scale-[1.75] object-top translate-y-[25%] filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
+                      <img src="/images/abhayyyyy.jpeg" loading="lazy" decoding="async" className="w-full h-full object-contain object-center scale-[1.35] translate-y-[8%] filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>

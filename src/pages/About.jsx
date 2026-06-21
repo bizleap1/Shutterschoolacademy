@@ -17,9 +17,9 @@ const About = () => {
     {
       name: 'Abhay Tiwari',
       role: 'Co-Founder & Head of Business',
-      image: '/images/abhay.png',
-      objectFit: 'object-cover scale-[1.75]',
-      imagePosition: 'object-top translate-y-[25%]',
+      image: '/images/abhayyyyy.jpeg',
+      objectFit: 'object-contain',
+      imagePosition: 'object-center',
       bio: [
         "A stunning visual portfolio is only half the equation; knowing how to monetize it is the other. As a Client Management and Business Expert, Abhay provides the strategic edge that most traditional film schools ignore.",
         "He equips students with the vital skills needed to transition from amateur creators to profitable business owners. From pitching and contract negotiation to client retention and managing the logistics of high-end shoots, Abhay ensures that Shutter School graduates are ready to navigate the corporate and freelance markets with total confidence."

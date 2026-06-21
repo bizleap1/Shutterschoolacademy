@@ -49,7 +49,7 @@ const Navbar = () => {
         }`}>
         <Link to="/" className="flex items-center group ml-2 md:ml-6">
           <div className="origin-left transition-transform duration-300 group-hover:scale-[1.02] mt-1 md:mt-0">
-            <img src="/logo-transparent.png" alt="Shutter School" className="h-[72px] md:h-20 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" />
+            <img src="/logo-transparent.png" alt="Shutter School" className="h-[72px] md:h-[100px] lg:h-[115px] w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" />
           </div>
         </Link>
 

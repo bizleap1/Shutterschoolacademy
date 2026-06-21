@@ -2,7 +2,8 @@ export const students = [
   {
     name: "Dev Parmar",
     role: "Commercial Photographer & Brand Visual Creator",
-    image: "/images/students/dev-parmar.jpg",
+    image: "/images/students/dev parmar black.jpeg",
+    imagePosition: "object-center",
     instagramUsername: "@commercialguy.in",
     instagramUrl: "https://instagram.com/commercialguy.in",
     ctaText: "Explore his work",
