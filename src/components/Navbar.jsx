@@ -37,7 +37,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Courses', path: '/courses', isDropdown: true },
-    { name: 'Our \u00A0 Masters', path: '/student-gallery' },
+    { name: 'Our Alumni', path: '/student-gallery' },
     { name: 'Hall of Fame', path: '/hall-of-fame' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }

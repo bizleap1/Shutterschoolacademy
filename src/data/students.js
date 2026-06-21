@@ -72,9 +72,9 @@ export const students = [
     name: "Pramod Mali",
     role: "Wedding Photographer & Visual Artist",
     image: "/images/students/pramod%20mali.png",
-    instagramUsername: "",
-    instagramUrl: "",
-    ctaText: "",
+    instagramUsername: "@mali______06",
+    instagramUrl: "https://www.instagram.com/mali______06?igsh=ZTFwc2dlcWdidTlk",
+    ctaText: "Explore his work",
     description: "A Shutter School graduate dedicated to the art of wedding photography. Pramod combines technical mastery with a deeply emotional perspective to create breathtaking, cinematic galleries. He is passionate about capturing real love stories, delivering premium, timeless, and highly personalized memories for every couple he works with."
   }
 ];
