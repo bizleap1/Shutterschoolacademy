@@ -10,11 +10,11 @@ const FounderCard = ({ founder, index }) => {
       transition={{ duration: 0.7, delay: index * 0.2 }}
       className="flex flex-col md:flex-row gap-0 bg-[#151515] border border-[rgba(184,184,184,0.16)] hover:border-[#B8B8B8] transition-colors duration-500 overflow-hidden rounded-sm shadow-md"
     >
-      <div className="w-full md:w-2/5 aspect-[3/4] md:aspect-auto bg-[#080808] relative shrink-0">
+      <div className="w-full md:w-2/5 aspect-[3/4] md:aspect-auto bg-[#080808] relative shrink-0 overflow-hidden">
         <img 
           src={founder.image} 
           alt={founder.name}
-          className="w-full h-full object-cover object-top grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+          className={`w-full h-full ${founder.objectFit || 'object-cover'} ${founder.imagePosition || 'object-top'} grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700`}
           onError={(e) => {
              e.target.style.display = 'none';
              e.target.nextElementSibling.style.display = 'block';

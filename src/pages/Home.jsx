@@ -126,16 +126,7 @@ const Home = () => {
                       </Link>
                   </div>
 
-                  {/* Mobile Trust Indicators */}
-                  <div className="md:hidden pt-3 pb-2">
-                    <p className="text-gray-400 text-[9px] font-bold tracking-[0.15em] uppercase text-center flex items-center justify-center gap-2 flex-wrap">
-                      <span>Studio Training</span>
-                      <span className="text-gray-600">•</span>
-                      <span>Outdoor Shoots</span>
-                      <span className="text-gray-600">•</span>
-                      <span>Portfolio Building</span>
-                    </p>
-                  </div>
+
               </motion.div>
           </div>
 
@@ -245,7 +236,7 @@ const Home = () => {
               {/* Founder 2 */}
               <div className="group">
                   <div className="relative overflow-hidden border border-gray-900 aspect-[4/5] mb-6 bg-black flex items-center justify-center">
-                      <img src="/images/abhay-tiwari-new.jpeg" loading="lazy" decoding="async" className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
+                      <img src="/images/abhay.png" loading="lazy" decoding="async" className="w-full h-full object-cover scale-[1.75] object-top translate-y-[25%] filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Abhay Tiwari" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                   <div>

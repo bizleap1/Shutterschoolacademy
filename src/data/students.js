@@ -20,7 +20,7 @@ export const students = [
   {
     name: "Rohit Pal",
     role: "Founder, Weddings by TTL",
-    image: "/images/students/rohit-pal.jpg",
+    image: "/images/students/rohit%20pal.png",
     instagramUsername: "@rohitrpal_",
     instagramUrl: "https://instagram.com/rohitrpal_",
     ctaText: "Explore his work",
@@ -39,7 +39,9 @@ export const students = [
   {
     name: "Kishan Mewada",
     role: "Co-Founder, Weddings by TTL",
-    image: "/images/students/kishan-mewada.jpg",
+    image: "/images/students/kishan%20mewada.png",
+    imagePosition: "object-[0%_10%] md:object-left",
+    containerClassName: "aspect-square",
     instagramUsername: "@kishmewada.ai",
     instagramUrl: "https://instagram.com/kishmewada.ai",
     ctaText: "Explore his vision",
@@ -60,15 +62,15 @@ export const students = [
     name: "Neel Gohil",
     role: "Wedding & Portrait Photographer",
     image: "/images/students/neel-gohil.png",
-    instagramUsername: "@storiesbyneel",
-    instagramUrl: "https://instagram.com/storiesbyneel",
+    instagramUsername: "@_storiesbyneel_",
+    instagramUrl: "https://www.instagram.com/_storiesbyneel_?igsh=NGIzbnhhb3FycjJs",
     ctaText: "Explore his work",
     description: "Mastering his craft at Shutter School, Neel Gohil has built a deeply authentic photography brand centered around the client experience. From high-energy wedding celebrations to quiet, intimate maternity sessions, Neel’s professional approach is rooted in capturing genuine emotion. He doesn't just document events; he fulfills his creative mission of Telling stories that feel like your own, ensuring every couple receives a timeless collection of their most precious memories."
   },
   {
     name: "Pramod Mali",
     role: "Wedding Photographer & Visual Artist",
-    image: "/images/students/pramod-mali.jpg",
+    image: "/images/students/pramod%20mali.png",
     instagramUsername: "",
     instagramUrl: "",
     ctaText: "",

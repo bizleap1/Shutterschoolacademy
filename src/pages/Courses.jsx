@@ -12,7 +12,7 @@ const Courses = () => {
   return (
     <div className="bg-[#F5F2EC] min-h-screen">
       {/* Dark Header Banner */}
-      <div className="bg-[#080808] h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center px-6 md:px-12 pt-16 border-b border-gray-900">
+      <div className="bg-[#080808] h-[350px] sm:h-[350px] md:h-[400px] flex items-center justify-center px-6 md:px-12 pt-16 border-b border-gray-900">
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-heading font-black uppercase tracking-widest text-[#F7F7F7] mb-6">Our Courses</h1>
           <p className="text-xs md:text-sm text-[#B8B8B8] max-w-2xl mx-auto uppercase tracking-widest font-medium leading-relaxed">

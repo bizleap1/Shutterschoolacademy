@@ -28,7 +28,7 @@ ${message}`;
   return (
     <div className="bg-[#000000] text-white min-h-screen font-sans" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Hero Section */}
-      <header className="relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#0A0A0A] border-b border-gray-900 flex flex-col justify-center px-6 md:px-12">
+      <header className="relative h-[350px] sm:h-[350px] md:h-[400px] bg-[#0A0A0A] border-b border-gray-900 flex flex-col justify-center px-6 md:px-12">
         <div className="max-w-3xl mt-16 text-center mx-auto">
           <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-white mb-4">GET IN TOUCH</h1>
           <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">Whether you have a question about our courses, need to inquire about our programs, or just want to say hello, we're here to help.</p>
@@ -130,7 +130,7 @@ ${message}`;
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center order-2 lg:order-2"
+            className="flex flex-col justify-center order-2 lg:order-2 lg:pl-12 xl:pl-24"
           >
             <h2 className="text-2xl font-bold uppercase tracking-wider mb-8">Contact Information</h2>
 

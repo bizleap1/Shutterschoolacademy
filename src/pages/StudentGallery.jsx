@@ -22,7 +22,7 @@ const StudentGallery = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-6xl font-heading font-black uppercase tracking-[0.1em] text-white mb-6 drop-shadow-2xl"
           >
-            Our Students
+            Our Masters
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const StudentGallery = () => {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-gray-400 text-lg md:text-xl font-manrope font-light max-w-2xl mx-auto"
           >
-            Meet the passionate creators shaping their vision through photography.
+            Meet the passionate Masters who shaped their vision of photography through ShutterSchoolAcademy.
           </motion.p>
         </div>
       </div>
