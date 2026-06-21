@@ -30,7 +30,7 @@ const StudentGallery = () => {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-gray-400 text-lg md:text-xl font-manrope font-light max-w-2xl mx-auto"
           >
-            Meet the passionate Masters who shaped their vision of photography through ShutterSchoolAcademy.
+            Meet the passionate Masters who shaped their vision of photography through Shutter School Academy.
           </motion.p>
         </div>
       </div>
