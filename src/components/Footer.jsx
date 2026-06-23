@@ -79,9 +79,12 @@ const Footer = () => {
 
         </div>
         
-        <div className="pt-8 border-t border-[#3A3A3A] flex flex-col md:flex-row justify-between items-center text-center md:text-left text-sm text-[#888888] font-manrope font-medium tracking-wide">
+        <div className="pt-8 border-t border-[#3A3A3A] flex flex-col md:flex-row justify-between items-center text-center md:text-left text-sm text-[#888888] font-manrope font-medium tracking-wide gap-4">
           <p className="mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Shutter School India. All rights reserved.
+          </p>
+          <p className="mb-4 md:mb-0">
+            Website designed and maintained by <a href="https://www.bizleap.in/" target="_blank" rel="noopener noreferrer" className="hover:text-[#F7F7F7] transition-colors underline">Bizleap</a>
           </p>
           <div className="flex space-x-6 md:space-x-8 justify-center">
             <Link to="/privacy-policy" className="hover:text-[#F7F7F7] transition-colors">Privacy Policy</Link>
